@@ -1,8 +1,8 @@
-@extends('app.layout')
+@extends('layouts.layout')
 
-@startsection
+@section('content')
 		<div class="container-fluid">
-			<a href="{{{ route('sucursales_create_path') }}}" class="btn btn-success">Nueva Sucursal</a>
+			<a href="{{{ route('users_create_path') }}}" class="btn btn-success">Nueva Sucursal</a>
 			<div class="row">
 				<div class="col-md-12">
 					<table class="table">
@@ -12,31 +12,43 @@
 									Nombre
 								</th>
 								<th>
-									Direcciòn
+									Apellido Paterno
 								</th>
 								<th>
-									Telefono
+									Apellido Materno
 								</th>
 								<th>
-									Opcion
+									Tipo
+								</th>
+								<th>
+									Email
+								</th>
+								<th>
+									Opciones
 								</th>
 							</tr>
 						</thead>
 						<tbody>
-							@foreach($sucursales as $sucursal)
+							@foreach($users as $user)
 							<tr>
 								<td>
-									{{$sucursal->nombre}}
+									{{$user->nombre}}
 								</td>
 								<td>
-									{{$sucursal->direccion}}
+									{{$user->apellidoPaterno}}
 								</td>
 								<td>
-									{{$sucursal->telefono}}
+									{{$user->apellidoMaterno}}
 								</td>
 								<td>
-									<a href="{{ route('sucursales_edit_path', ['sucursal'=>$sucursal->idSucursal]) }}" class="btn btn-info">Editar</a>
-									<form class="" action="{{ route('sucursales_delete_path', ['sucursal' => $sucursal->idSucursal]) }}" method="post">
+									{{$user->tipo}}
+								</td>
+								<td>
+									{{$user->email}}
+								</td>
+								<td>
+									<a href="{{ route('users_edit_path', ['user'=>$user->id]) }}" class="btn btn-info">Editar</a>
+									<form class="" action="{{ route('users_delete_path', ['user' => $user->id]) }}" method="post">
 										{{ csrf_field() }}
 										{{ method_field('DELETE') }}
 

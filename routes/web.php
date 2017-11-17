@@ -30,3 +30,18 @@ Route::name('sucursales_edit_path')->get('sucursales/{sucursal}/editar', 'Sucurs
 Route::name('sucursales_update_path')->put('sucursales/{sucursal}', 'Sucursal@Update');
 
 Route::name('sucursales_delete_path')->delete('sucursales/{sucursal}', 'Sucursal@delete');
+
+
+//Rutas de registro de usuarios
+
+Route::name('users_path')->get('/usuarios', 'userController@index');
+
+Route::name('users_create_path')->get('/usuarios/crear', 'userController@create');
+
+Route::name('users_store_path')->post('usuarios/crear', 'userController@store');
+
+Route::name('users_edit_path')->get('usuarios/{user}/editar', 'userController@edit');
+
+Route::name('users_update_path')->put('usuarios/{user}', 'userController@Update');
+
+Route::name('users_delete_path')->delete('usuarios/{user}', 'userController@Destroy');
