@@ -6,6 +6,8 @@ use \App\User;
 use \App\Sucursal;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\DB;
+
 class userController extends Controller
 {
     /**
@@ -29,8 +31,16 @@ class userController extends Controller
 
     public function index()
     {
+
+
+        //$sucursales = Sucursal::orderBy('idSucursal', 'desc')->get();
         $users = User::orderBy('id', 'desc')->get();
-        return view('usuario.index')->with(['users' => $users]);
+        //$nombreSucursal =
+
+
+        //return view('usuario.index', compact('users'), compact('sucursales'));
+
+        return view('usuario.index', compact('users'));
     }
 
     /**
@@ -82,9 +92,10 @@ class userController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $id)
     {
-        //
+      $sucursales = Sucursal::orderBy('idSucursal', 'desc')->get();
+        return view('usuario.edit', compact('id'), compact('sucursales'));
     }
 
     /**
@@ -105,8 +116,10 @@ class userController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $user->delete();
+
+        return redirect()->route('users_path');
     }
 }

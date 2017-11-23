@@ -1,6 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
+
 		<div class="container-fluid">
 			<a href="{{{ route('users_create_path') }}}" class="btn btn-success">Nueva Sucursal</a>
 			<div class="row">
@@ -16,6 +17,9 @@
 								</th>
 								<th>
 									Apellido Materno
+								</th>
+								<th>
+									Sucursal
 								</th>
 								<th>
 									Tipo
@@ -39,6 +43,9 @@
 								</td>
 								<td>
 									{{$user->apellidoMaterno}}
+								</td>
+								<td>
+									
 								</td>
 								<td>
 									{{$user->tipo}}

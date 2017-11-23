@@ -12,6 +12,6 @@ class Sucursal extends Model
     protected $primaryKey = 'idSucursal';
 
     protected $fillable = [
-        'direccion', 'telefono', 'nombre',
+        'direccion', 'telefono', 'nombre', 'idSucursal',
     ];
 }
